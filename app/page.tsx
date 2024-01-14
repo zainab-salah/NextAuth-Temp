@@ -1,6 +1,10 @@
 import SectionTitle from "@/components/Common/SectionTitle";
+import { getServerSession } from "next-auth";
+import { options } from "../app/api/auth/[...nextauth]/options";
 
-export default function Home() {
+const HomePage = async () => {
+  const session = await getServerSession(options);
+ console.log(session)
   return (
     <section className="min-h-screen  paddings">
       <div className="container">
@@ -9,4 +13,7 @@ export default function Home() {
       </div>
     </section>
   );
+
+
 }
+export default HomePage;
