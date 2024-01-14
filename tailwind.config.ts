@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss"
-
+const { fontFamily } = require("tailwindcss/defaultTheme")
+ 
+ 
 const config = {
   darkMode: ["class"],
   content: [
@@ -56,6 +58,9 @@ const config = {
       warning: '#FFA70B',
     },
     extend: {
+       fontFamily: {
+        sans: ["var(--font-sans)", ...fontFamily.sans],
+      },
       fontSize: {
         'title-xxl': ['44px', '55px'],
         'title-xxl2': ['42px', '58px'],
