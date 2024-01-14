@@ -22,10 +22,10 @@ export const fontSans = FontSans({
       <body
         className={cn("min-h-screen font-sans antialiased", fontSans.variable)}
       >
-         <AuthProvider>
+         {/* <AuthProvider> */}
 
         {children}
-         </AuthProvider>
+         {/* </AuthProvider> */}
       </body>
     </html>
   );

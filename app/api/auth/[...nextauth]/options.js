@@ -2,7 +2,6 @@
 import CredentialsProvider from "next-auth/providers/credentials";
 export const options = {
   providers: [
-  
     CredentialsProvider({
       name: "Credentials",
       credentials: {
