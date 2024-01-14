@@ -7,10 +7,10 @@ export default withAuth(
     console.log(req.nextauth.token.role);
 
     if (
-      req.nextUrl.pathname.startsWith("/CreateUser") &&
+       req.nextUrl.pathname.startsWith("/Superadmin") &&
       req.nextauth.token.role != "admin"
     ) {
-      return NextResponse.rewrite(new URL("/Denied", req.url));
+      return NextResponse.rewrite(new URL("/not-found", req.url));
     }
   },
   {
@@ -20,4 +20,4 @@ export default withAuth(
   }
 );
 
-export const config = { matcher: ["/CreateUser"] };
+export const config = { matcher: ["/Superadmin"] };
