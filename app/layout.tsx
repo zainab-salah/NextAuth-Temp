@@ -1,17 +1,15 @@
  
 import AuthProvider from "@/components/AuthProvider";
-import { Inter as FontSans } from "next/font/google";
+
+import { fontSans } from "@/lib/fonts"
 import "./globals.css";
 import Head from "./head";
 import { cn } from "@/lib/utils";
 
-export const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+
  
 
- function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -31,4 +29,4 @@ export const fontSans = FontSans({
   );
 }
 
-export default RootLayout;
+ 
