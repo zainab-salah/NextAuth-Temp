@@ -19,25 +19,22 @@ export const options = {
       },
       async authorize(credentials) {
         try {
-          // const foundUser = await User.findOne({ email: credentials.email })
-          //   .lean()
-          //   .exec();
-
-          // if (foundUser) {
-          //   console.log("User Exists");
-          //   const match = await bcrypt.compare(
-          //     credentials.password,
-          //     foundUser.password
-          //   );
-
-          //   if (match) {
-          //     console.log("Good Pass");
-          //     delete foundUser.password;
-
-          //     foundUser["role"] = "Unverified Email";
-          //     return foundUser;
-          //   }
-          // }
+    
+          const res = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(credentials),
+            }
+          );
+          const data = await res.json();
+          if (res.ok && data.user) {
+            return data;
+          }
+          return null;
         } catch (error) {
           console.log(error);
         }
@@ -46,12 +43,12 @@ export const options = {
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
-      if (user) token.role = user.role;
+    jwt: async ({ token, user }) => {
+      if (user) token = user;
       return token;
     },
-    async session({ session, token }) {
-      if (session?.user) session.user.role = token.role;
+    session: async ({ session, token }) => {
+      session.user = { ...token };
       return session;
     },
   },
