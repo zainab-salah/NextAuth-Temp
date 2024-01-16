@@ -1,13 +1,10 @@
- 
 import AuthProvider from "@/components/AuthProvider";
 
-import { fontSans } from "@/lib/fonts"
+import { fontSans } from "@/lib/fonts";
 import "./globals.css";
 import Head from "./head";
 import { cn } from "@/lib/utils";
-
-
- 
+import Navbar from "@/components/Navbar";
 
 export default function RootLayout({
   children,
@@ -20,13 +17,9 @@ export default function RootLayout({
       <body
         className={cn("min-h-screen font-sans antialiased", fontSans.variable)}
       >
-         {/* <AuthProvider> */}
-
-        {children}
-         {/* </AuthProvider> */}
+        <Navbar />
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );
 }
-
- 
