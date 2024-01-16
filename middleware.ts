@@ -1,4 +1,4 @@
-// Ref: https://next-auth.js.org/configuration/nextjs#advanced-usage
+ 
 import { withAuth, NextRequestWithAuth } from "next-auth/middleware";
 import { NextResponse } from "next/server";
 
@@ -21,5 +21,5 @@ export default withAuth(
   }
 );
 
-// Ref: https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
-export const config = { matcher: ["/adminpage", "/client"] };
+ //protacted page for role admin
+export const config = { matcher: ["/adminpage"] };
