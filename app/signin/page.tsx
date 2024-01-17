@@ -1,11 +1,20 @@
 import LoginForm from "@/components/Forms/LoginForm";
-import React from "react";
-
+import { getServerSession } from "next-auth";
+ 
+ 
+import { redirect } from "next/navigation";
+import { options } from "../api/auth/[...nextauth]/options";
+ 
 type Props = {
   searchParams?: Record<"callbackUrl" | "error", string>;
 };
 
-const SignInPage = (props: Props) => {
+const SignInPage = async (props: Props) => {
+  const session = await getServerSession(options);
+
+  if (session) {
+    redirect("/");
+  }
   return (
     <section className="paddings">
       <div className="container">

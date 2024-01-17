@@ -56,7 +56,7 @@ const LoginForm = (props: Props) => {
       toast({
         variant: "destructive",
         title: "حصل خطأ",
-        description: "يرجى المحاولة مرة اخرى",
+        description: "يرجى التحقق من المدخلات مرة اخرى",
       });
     }
   }
