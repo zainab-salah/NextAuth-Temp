@@ -1,4 +1,5 @@
 import SectionTitle from "@/components/Common/SectionTitle";
+ 
 const HomePage = async () => {
   return (
     <section className="min-h-screen  paddings">

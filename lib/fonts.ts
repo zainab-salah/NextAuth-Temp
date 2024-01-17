@@ -1,7 +1,7 @@
  
 
-import { Inter as FontSans } from "next/font/google";
+import { Rubik as FontSans } from "next/font/google";
 export const fontSans = FontSans({
-    subsets: ["latin"],
+    subsets: ["arabic"],
     variable: "--font-sans",
   });

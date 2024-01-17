@@ -1,4 +1,3 @@
- 
 import LoginForm from "@/components/Forms/LoginForm";
 import React from "react";
 
@@ -8,10 +7,14 @@ type Props = {
 
 const SignInPage = (props: Props) => {
   return (
-    <LoginForm
-      error={props.searchParams?.error}
-      callbackUrl={props.searchParams?.callbackUrl}
-    />
+    <section className="paddings">
+      <div className="container">
+        <LoginForm
+          error={props.searchParams?.error}
+          callbackUrl={props.searchParams?.callbackUrl}
+        />
+      </div>
+    </section>
   );
 };
 
