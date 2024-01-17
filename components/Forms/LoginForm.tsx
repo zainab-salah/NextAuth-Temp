@@ -1,6 +1,6 @@
 "use client";
 
-import { signIn, useSession } from "next-auth/react";
+import { signIn} from "next-auth/react";
 import { useRouter } from "next/navigation";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -26,7 +26,7 @@ type Props = {
 const LoginForm = (props: Props) => {
   const router = useRouter();
   const { toast } = useToast();
-  const { data: session, status } = useSession();
+
   const formSchema = yup.object({
     phone: yup
       .number()
